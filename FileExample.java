@@ -6,7 +6,6 @@ import java.util.List;
 public class FileExample {
 
   /*
-
   Given a File (which can represent either a file or directory), return a list
   of all the files in that directory and all its subdirectories.
 
@@ -39,17 +38,35 @@ public class FileExample {
   */
 
 	static List<File> getFiles(File start) throws IOException {
-	  File f = start;
 	  List<File> result = new ArrayList<>();
 	  result.add(start);
-	  if(f.isDirectory()) {
-	    File[] paths = f.listFiles();
-	    for(File subFile: paths) {
-	      result.add(subFile);
-	    }
+	  if(start.isDirectory()) {
+	    
+      readFile(start, result);
+      /*File[] paths = start.listFiles();
+
+      for(File subFile: paths) {
+        result.add(subFile);
+	    }*/
 	  }
 	  return result;
 	}
+
+  public static void readFile(File currentFile, List<File> currentList) throws IOException {
+
+    File[] paths2 = currentFile.listFiles();
+
+    if(paths2 == null){
+      return;
+    }
+
+      for(File currentSubFile : paths2){
+
+        currentList.add(currentSubFile);
+        readFile(currentSubFile, currentList);
+
+      }
+  }
 }
 
 
