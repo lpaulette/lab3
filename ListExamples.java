@@ -3,7 +3,17 @@ import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
 
-class ListExamples {
+public class ListExamples  implements StringChecker {
+
+ @Override
+  public boolean checkString(String s){
+    
+    if(s.contains("" + "a")){
+      return false;
+    }
+
+    return true;
+  }
 
   // Returns a new list that has all the elements of the input list for which
   // the StringChecker returns true, and not the elements that return false, in
@@ -12,7 +22,7 @@ class ListExamples {
     List<String> result = new ArrayList<>();
     for(String s: list) {
       if(sc.checkString(s)) {
-        result.add(0, s);
+        result.add(s);//should be s only, not include index
       }
     }
     return result;
@@ -40,7 +50,7 @@ class ListExamples {
     }
     while(index2 < list2.size()) {
       result.add(list2.get(index2));
-      index1 += 1;
+      index1 += 1;//add to index2 not index1
     }
     return result;
   }
