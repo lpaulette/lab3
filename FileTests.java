@@ -9,7 +9,8 @@ public class FileTests {
     public void testGetFiles() throws IOException{
 
         File file = new File("some-files/");
-
+        //File file = new File("myFiles/")
+        
         List<File> fileList = FileExample.getFiles(file);
 
         for(File currentFile : fileList){

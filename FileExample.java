@@ -39,20 +39,15 @@ public class FileExample {
 
 	static List<File> getFiles(File start) throws IOException {
 	  List<File> result = new ArrayList<>();
-	  result.add(start);
+    
 	  if(start.isDirectory()) {
 	    
-      readFile(start, result);
-      /*File[] paths = start.listFiles();
-
-      for(File subFile: paths) {
-        result.add(subFile);
-	    }*/
+      readPath(start, result);
 	  }
 	  return result;
 	}
 
-  public static void readFile(File currentFile, List<File> currentList) throws IOException {
+  public static void readPath(File currentFile, List<File> currentList) throws IOException {
 
     File[] paths2 = currentFile.listFiles();
 
@@ -60,12 +55,17 @@ public class FileExample {
       return;
     }
 
-      for(File currentSubFile : paths2){
+    for(File currentSubFile : paths2) {
 
+      readPath(currentSubFile, currentList);
+      if(currentSubFile.isFile()){
         currentList.add(currentSubFile);
-        readFile(currentSubFile, currentList);
-
       }
+      else{
+        continue;
+      }
+
+    }
   }
 }
 
