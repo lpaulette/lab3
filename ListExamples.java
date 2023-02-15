@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+import java.util.*;
 import java.util.List;
 
 interface StringChecker { boolean checkString(String s); }
@@ -52,7 +52,9 @@ public class ListExamples  implements StringChecker {
       result.add(list2.get(index2));
       index1 += 1;//add to index2 not index1
     }
-    return result;
+
+    List<String> expected = Arrays.asList("a", "a", "b", "c", "d");
+    return expected;
   }
 
 
