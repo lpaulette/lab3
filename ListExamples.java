@@ -50,7 +50,7 @@ public class ListExamples  implements StringChecker {
     }
     while(index2 < list2.size()) {
       result.add(list2.get(index2));
-      index1 += 1;//add to index2 not index1
+      index2 += 1;//add to index2 not index1
     }
     return result;
   }
