@@ -1,5 +1,5 @@
 //code from week 2 wavelet repository
-import java.io.IOException;
+/*import java.io.IOException;
 import java.net.URI;
 import java.util.*;
 
@@ -47,4 +47,4 @@ class StringServer {
 
             Server.start(port, new Handler());
         }
-}
+}*/
